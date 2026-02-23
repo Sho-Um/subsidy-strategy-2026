@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医療法人（美容業態）補助金・助成金 総合調査報告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f6;
+  --bg-warm: #f5f0eb;
+  --bg-card: #ffffff;
+  --bg-card-alt: #fdf9f7;
+  --accent: #b4646e;
+  --accent-light: #d4949c;
+  --accent-pale: #f2e4e6;
+  --accent-deep: #8c3d4a;
+  --teal: #4a8c8c;
+  --teal-light: #e6f2f2;
+  --navy: #2c3e50;
+  --text: #2a2a2a;
+  --text-secondary: #6b6b6b;
+  --text-muted: #9a9a9a;
+  --border: #e8e2dd;
+  --border-light: #f0ebe6;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --red-tag: #c0392b;
+  --green-tag: #27ae60;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+/* ===== SUBTLE TEXTURE ===== */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(250,248,246,0.88);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  transition: all 0.25s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: var(--accent-pale);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+}
+.hamburger span { width: 20px; height: 1.5px; background: var(--text-secondary); border-radius: 2px; }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(250,248,246,0.97);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.mobile-menu.show { display: flex; }
+.mobile-menu a { color: var(--text); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.3rem; color: var(--text-muted); background: none; border: none; cursor: pointer; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 7rem 2rem 5rem;
+  overflow: hidden;
+}
+
+.hero-deco {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 75% 30%, rgba(180,100,110,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 60% at 20% 70%, rgba(74,140,140,0.05) 0%, transparent 70%);
+}
+
+.hero-line {
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 110%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  transform: rotate(-3deg);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  text-align: center;
+  animation: heroFade 1.2s ease-out;
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 2;
+}
+
+.hero-chips {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-chip {
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  font-weight: 500;
+}
+
+.hero-chip.accent {
+  border-color: var(--accent-light);
+  color: var(--accent);
+  background: var(--accent-pale);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  max-width: 750px;
+  line-height: 2;
+  margin-bottom: 2.5rem;
+}
+
+.divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ===== EXCLUSION/ELIGIBILITY TABLE ===== */
+.elig-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  margin-top: 2rem;
+}
+
+.elig-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.elig-table th {
+  background: var(--bg-warm);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.elig-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text);
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.elig-table tr:last-child td { border-bottom: none; }
+.elig-table tr:hover td { background: rgba(180,100,110,0.02); }
+
+.tag-ok {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(39,174,96,0.1);
+  color: var(--green-tag);
+}
+.tag-ng {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(192,57,43,0.1);
+  color: var(--red-tag);
+}
+
+/* ===== DEEP DIVE CARDS ===== */
+.deep-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.deep-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.4s;
+}
+.deep-card:hover { box-shadow: var(--shadow-md); }
+
+.deep-card-accent {
+  height: 4px;
+}
+
+.deep-header {
+  padding: 2rem 2rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.deep-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.deep-header-text h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+  color: var(--navy);
+}
+
+.deep-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+}
+
+.deep-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.deep-body > p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.95;
+  margin-bottom: 1.5rem;
+}
+
+.deep-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.deep-detail {
+  background: var(--bg-warm);
+  border-radius: 12px;
+  padding: 1.15rem;
+}
+
+.deep-detail-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.deep-detail-value {
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* Mine / Risk callout */
+.mine-callout {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--red-tag);
+  background: rgba(192,57,43,0.04);
+}
+
+.mine-callout-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--red-tag);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.mine-callout p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ===== REGION GRID ===== */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.region-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+}
+.region-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-light);
+}
+
+.region-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.region-card h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.region-card p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 0.75rem;
+}
+
+.region-amount {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.region-amount-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 0.3rem;
+}
+
+/* ===== TOP 5 ===== */
+.top5-list {
+  display: grid;
+  gap: 1.25rem;
+  counter-reset: top5;
+}
+
+.top5-item {
+  counter-increment: top5;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+.top5-item:hover { box-shadow: var(--shadow-md); border-color: var(--accent-light); }
+
+.top5-rank {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.top5-content h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.top5-scope {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: var(--teal-light);
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.top5-content p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.85;
+}
+
+/* ===== TIMELINE ===== */
+.timeline { position: relative; margin-top: 2rem; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--teal), var(--accent-light));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 64px;
+  padding-bottom: 2.25rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 14px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--bg);
+  z-index: 2;
+}
+
+.timeline-phase {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-card h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.timeline-card p {
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.85;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--bg-warm);
+}
+
+.footer-inner { max-width: 800px; margin: 0 auto; }
+.footer p { color: var(--text-muted); font-size: 0.78rem; line-height: 1.8; }
+
+.footer-refs { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.footer-refs summary { color: var(--text-muted); font-size: 0.75rem; cursor: pointer; margin-bottom: 1rem; }
+.footer-refs ol { text-align: left; color: var(--text-muted); font-size: 0.7rem; line-height: 2; padding-left: 1.5rem; }
+.footer-refs a { color: var(--accent); text-decoration: none; word-break: break-all; }
+
+/* ===== SCROLL ANIM ===== */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .deep-header { flex-direction: column; gap: 0.75rem; }
+  .deep-detail-grid { grid-template-columns: 1fr; }
+  .top5-item { grid-template-columns: 1fr; gap: 1rem; }
+  .region-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 12px; }
+  .timeline-item { padding-left: 44px; }
+  .timeline-dot { left: 3px; width: 20px; height: 20px; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 3rem 1.25rem; }
+  .hero { padding: 5rem 1.25rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Medical Corp. 補助金戦略</div>
+    <ul class="nav-links">
+      <li><a href="#eligibility">対象制度の仕分け</a></li>
+      <li><a href="#deepdive">優先獲得枠</a></li>
+      <li><a href="#regions">地域別戦略</a></li>
+      <li><a href="#top5">TOP5</a></li>
+      <li><a href="#roadmap">14日間行動計画</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('mm').classList.add('show')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('show')">✕</button>
+  <a href="#eligibility" onclick="this.parentElement.classList.remove('show')">対象制度の仕分け</a>
+  <a href="#deepdive" onclick="this.parentElement.classList.remove('show')">優先獲得枠</a>
+  <a href="#regions" onclick="this.parentElement.classList.remove('show')">地域別戦略</a>
+  <a href="#top5" onclick="this.parentElement.classList.remove('show')">TOP5</a>
+  <a href="#roadmap" onclick="this.parentElement.classList.remove('show')">14日間行動計画</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Comprehensive Report &amp; Action Plan</div>
+    <h1>医療法人（美容業態）における<br>補助金・助成金<em>総合調査報告</em><br>および実行計画</h1>
+    <p class="hero-sub">広島・福岡・岡山・京都・熊本・大阪・神戸・表参道・麻布 — 全国9拠点を展開する美容医療法人のための、コンプライアンスを最優先とした適正制度の仕分けと戦略的活用ガイド。</p>
+    <div class="hero-chips">
+      <span class="hero-chip accent">従業員約120名</span>
+      <span class="hero-chip">予約・問診DX</span>
+      <span class="hero-chip">CRM導入</span>
+      <span class="hero-chip">空調・省エネ</span>
+      <span class="hero-chip">キャッシュレス</span>
+      <span class="hero-chip">採用・定着</span>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1: 構造的課題 -->
+<section class="section fade-in">
+  <div class="section-eyebrow">Chapter 01 — Structural Constraints</div>
+  <h2 class="section-title">医療法人における公的支援制度活用の<br>構造的課題と基本原則</h2>
+  <div class="section-desc">
+    医療法人は医療法に基づく特殊な非営利法人であり、中小企業基本法に定める中小企業者とは法人格が異なります。美容クリニックは自由診療が主体であっても、法人格が「医療法人」である以上、多くの中小企業向け補助金では原則として対象外とされるケースが散見されます。コンプライアンスを完全に遵守した適正な制度のみを抽出することが最重要です。
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- SECTION 2: 対象制度仕分け表 -->
+<section class="section fade-in" id="eligibility">
+  <div class="section-eyebrow">Chapter 02 — Eligibility Matrix</div>
+  <h2 class="section-title">公式根拠に基づく対象制度仕分け表</h2>
+  <div class="section-desc">
+    医療法人が適正に対象となる制度群と、申請そのものが無効あるいは返還請求リスクを伴う除外制度を明確に区分します。この仕分けが適正ガバナンスの第一歩です。
+  </div>
+
+  <div class="elig-table-wrap">
+    <table class="elig-table">
+      <thead>
+        <tr>
+          <th>制度名</th>
+          <th>対象</th>
+          <th>上限額 / 補助率</th>
+          <th>対象経費の例示</th>
+          <th>時期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;">IT導入補助金</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>最大数百万〜数千万円 / 1/2〜4/5</td>
+          <td>ITツール、クラウド利用料、PC、レジ等</td>
+          <td>通年（複数回締切）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">業務改善助成金</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>最大600万円 / 3/4〜4/5</td>
+          <td>空調、DX機器等の生産性向上設備</td>
+          <td>通年（予算消尽まで）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">キャリアアップ助成金</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>正社員化1人あたり数十万円</td>
+          <td>転換措置に対する定額助成</td>
+          <td>通年</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">人材開発支援助成金</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>経費＋賃金の一部</td>
+          <td>外部研修費用、訓練期間中の賃金</td>
+          <td>通年（事前計画届出必須）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">東京都 省エネ・再エネ助成</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>最大2億円 / 1/2〜2/3</td>
+          <td>省エネ設備、再エネ発電設備</td>
+          <td>2025/4〜2026/3</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">神戸市 DX推進補助</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>通常100万 / モデル250万</td>
+          <td>DXシステム導入・構築費用</td>
+          <td>2025年度順次</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">大阪府 電子処方箋促進</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>約100万円</td>
+          <td>電子処方箋・新機能導入費用</td>
+          <td>2025/11〜2026/1</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">港区 省エネ設備改修</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>100万円 / 経費の1/4等</td>
+          <td>LED照明等の設備改修</td>
+          <td>2025年度順次</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">福岡県 医療従事者環境改善</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>無床診療所18万円</td>
+          <td>職場環境整備・生産性向上備品</td>
+          <td>自治体要項による</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">熊本県 医療機関等支援金</td>
+          <td><span class="tag-ok">○ 対象</span></td>
+          <td>無床診療所11万2千円</td>
+          <td>物価高騰対策の定額支援金</td>
+          <td>随時更新</td>
+        </tr>
+        <tr style="background:rgba(192,57,43,0.02);">
+          <td style="font-weight:600; color:var(--text-muted);">ものづくり補助金</td>
+          <td><span class="tag-ng">× 対象外</span></td>
+          <td colspan="3" style="color:var(--text-muted);">医療法人は保険収入の有無に関わらず不可。法人格による制限。</td>
+        </tr>
+        <tr style="background:rgba(192,57,43,0.02);">
+          <td style="font-weight:600; color:var(--text-muted);">小規模事業者持続化補助金</td>
+          <td><span class="tag-ng">× 対象外</span></td>
+          <td colspan="3" style="color:var(--text-muted);">会社法上の「会社」に該当せず。医療法人は原則対象外。</td>
+        </tr>
+        <tr style="background:rgba(192,57,43,0.02);">
+          <td style="font-weight:600; color:var(--text-muted);">中小企業省力化投資補助金</td>
+          <td><span class="tag-ng">× 対象外</span></td>
+          <td colspan="3" style="color:var(--text-muted);">対象業種カタログに医療業の紐付けが困難。採択は極めて困難。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- SECTION 3: 優先獲得枠の深掘り -->
+<section class="section fade-in" id="deepdive">
+  <div class="section-eyebrow">Chapter 03 — Strategic Deep Dive</div>
+  <h2 class="section-title">優先獲得枠の深掘りと戦略的活用法</h2>
+  <div class="section-desc">
+    本法人の投資領域に最も親和性が高く、採択の蓋然性が見込める制度を3つの領域に分けて詳述します。
+  </div>
+
+  <div class="deep-grid">
+
+    <!-- IT導入補助金 -->
+    <div class="deep-card">
+      <div class="deep-card-accent" style="background:linear-gradient(90deg,var(--accent),var(--accent-light));"></div>
+      <div class="deep-header">
+        <div class="deep-icon" style="background:var(--accent-pale);">💻</div>
+        <div class="deep-header-text">
+          <h3>IT導入補助金 — 情報技術・DX領域</h3>
+          <span class="deep-tag" style="background:var(--accent-pale);color:var(--accent);">全拠点共通 / 最大数百万〜数千万円</span>
+        </div>
+      </div>
+      <div class="deep-body">
+        <p>予約・問診のデジタル化、CRM、電子カルテ周辺システムの導入、キャッシュレス決済の統合を一括支援。医療法人は「常時雇用の従業員数300人以下」を満たす場合に補助対象となり、本法人（約120名）は要件を完全に満たしています。</p>
+        <div class="deep-detail-grid">
+          <div class="deep-detail">
+            <div class="deep-detail-label">対象経費</div>
+            <div class="deep-detail-value">事務局登録済みソフトウェアの購入費用、最大2年分のクラウド利用料、設定費用・保守費用。特定枠ではPC・タブレット・レジ等のハードウェアも対象。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">補助率</div>
+            <div class="deep-detail-value">通常枠：1/2以内。インボイス対応枠：2/3〜最大4/5。導入業務プロセス数に応じ最大数百万円規模。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">必要書類</div>
+            <div class="deep-detail-value">法人の履歴事項全部証明書、法人税の納税証明書（その1またはその2）、GビズIDプライムアカウント。IT導入支援事業者との共同事業計画書。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">活用例</div>
+            <div class="deep-detail-value">紙の問診票→タブレットデジタル問診＋電子カルテ自動連携。予約システム×CRM統合で施術履歴を一元管理し、パーソナライズ接遇を実現。</div>
+          </div>
+        </div>
+
+        <div class="mine-callout">
+          <div class="mine-callout-title">⚠ 地雷（リスク要因）</div>
+          <p>①事務局に未登録のベンダー・ITツールは補助対象外。②交付決定前の契約・発注・支払いは一切対象外。③ベンダーとの結託（架空ライセンス計上・費用水増し・キックバック）は不正受給として刑事告発・法人名公表の対象。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 厚労省系助成金パッケージ -->
+    <div class="deep-card">
+      <div class="deep-card-accent" style="background:linear-gradient(90deg,var(--teal),#7cbcbc);"></div>
+      <div class="deep-header">
+        <div class="deep-icon" style="background:var(--teal-light);">👥</div>
+        <div class="deep-header-text">
+          <h3>厚労省系助成金パッケージ — 人的資本投資・雇用環境改善</h3>
+          <span class="deep-tag" style="background:var(--teal-light);color:var(--teal);">全拠点共通 / 最大600万円＋定額助成</span>
+        </div>
+      </div>
+      <div class="deep-body">
+        <p>美容業態の最大課題である採用・定着を解決する3制度のパッケージ。設備投資と処遇改善を連動させ、「人材育成のエコシステム」を構築します。</p>
+
+        <h4 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:0.95rem;margin:1.5rem 0 0.75rem;color:var(--navy);">❶ 業務改善助成金</h4>
+        <div class="deep-detail-grid">
+          <div class="deep-detail">
+            <div class="deep-detail-label">仕組み</div>
+            <div class="deep-detail-value">事業場内最低賃金の引上げ＋生産性向上設備投資のセット。空調更新・自動精算機・POSレジ等が広く対象。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">補助率・上限</div>
+            <div class="deep-detail-value">3/4〜最大4/5。上限最大600万円。賃上げ額・人数に応じて変動。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">必要書類</div>
+            <div class="deep-detail-value">交付申請書、事業計画書、相見積書、賃金台帳、就業規則、事業完了後は実績報告書。</div>
+          </div>
+        </div>
+        <div class="mine-callout">
+          <div class="mine-callout-title">⚠ 最大の地雷</div>
+          <p>「先に計画を出し、労働局から交付決定を受けてから実施する」という大原則を破ると全額対象外。申請前の賃上げ実施や設備発注は不可。納品日・支払完了日・賃上げ日のスケジュール管理も厳格。</p>
+        </div>
+
+        <h4 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:0.95rem;margin:1.5rem 0 0.75rem;color:var(--navy);">❷ キャリアアップ助成金（正社員化コース）</h4>
+        <div class="deep-detail-grid">
+          <div class="deep-detail">
+            <div class="deep-detail-label">仕組み</div>
+            <div class="deep-detail-value">有期雇用労働者（契約カウンセラー、パート看護師等）を正規雇用に転換し、要件を満たした場合に1人当たり定額を助成。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">注意点</div>
+            <div class="deep-detail-value">転換前後の賃金総額が3%以上の増額必須。就業規則に転換制度の明記がない場合は不支給。</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:0.95rem;margin:1.5rem 0 0.75rem;color:var(--navy);">❸ 人材開発支援助成金</h4>
+        <div class="deep-detail-grid">
+          <div class="deep-detail">
+            <div class="deep-detail-label">仕組み</div>
+            <div class="deep-detail-value">高度な技術研修や接遇・クレーム対応の外部研修にかかる訓練経費＋訓練時間帯の賃金の一部を助成。事前の訓練計画＋労働局届出が必須。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">最強の組み合わせ</div>
+            <div class="deep-detail-value">キャリアアップ助成金で正社員化→人材開発支援助成金で専門スキル付与。「人材育成のエコシステム」が美容医療法人の最強の定着戦略。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 省エネ・設備更新 -->
+    <div class="deep-card">
+      <div class="deep-card-accent" style="background:linear-gradient(90deg,#27ae60,#7dcea0);"></div>
+      <div class="deep-header">
+        <div class="deep-icon" style="background:rgba(39,174,96,0.08);">🌿</div>
+        <div class="deep-header-text">
+          <h3>省エネ・設備更新領域 — 大規模投資パッケージ</h3>
+          <span class="deep-tag" style="background:rgba(39,174,96,0.08);color:#27ae60;">老朽化拠点優先 / 最大2億円</span>
+        </div>
+      </div>
+      <div class="deep-body">
+        <p>空調設備の更新・LED化等の省エネ投資には、業務改善助成金のほか、環境省・経済産業省連携の「省エネルギー投資促進支援事業」等が利用可能。医療法人もエネルギー削減に貢献する主体として広く対象に含まれています。</p>
+        <div class="deep-detail-grid">
+          <div class="deep-detail">
+            <div class="deep-detail-label">技術的要件</div>
+            <div class="deep-detail-value">既存設備と導入予定設備のエネルギー消費量比較で一定割合以上の省エネ効果を定量的に証明する必要あり。</div>
+          </div>
+          <div class="deep-detail">
+            <div class="deep-detail-label">必要な連携</div>
+            <div class="deep-detail-value">省エネルギーセンターの診断士、専門ノウハウを持つ設備工事業者との強固な連携が不可欠。設計図面やエネルギー計算書等の高度なエンジニアリングデータを要する。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- SECTION 4: 地域別戦略 -->
+<section class="section fade-in" id="regions">
+  <div class="section-eyebrow">Chapter 04 — Regional Strategy</div>
+  <h2 class="section-title">所在地別の自治体独自支援制度と併用戦略</h2>
+  <div class="section-desc">
+    国の制度は全国一律ですが、各自治体は独自の補助金を展開しています。同一経費への二重受給は厳禁ですが、経費を明確に区分した「切り分け戦略」は完全に合法であり推奨される手法です。
+  </div>
+
+  <div class="region-grid">
+
+    <div class="region-card">
+      <div class="region-label">東京都・港区（表参道・麻布）</div>
+      <h4>省エネ・再エネ設備助成</h4>
+      <p>都内事業者向けに省エネ設備・再エネ発電設備の導入を助成。助成率1/2〜2/3、受付2025年4月〜2026年3月。都心一等地クリニックの全面改装に絶大な威力。港区では別途LED化等に上限100万円の制度あり。</p>
+      <span class="region-amount">最大2億円</span>
+      <span class="region-amount-label">（東京都上限）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">大阪府</div>
+      <h4>電子処方箋普及促進事業</h4>
+      <p>電子処方箋システム導入費用の一部を補助。申請期間2025/11/4〜2026/1/18。IT導入補助金と経費を切り分け、電子処方箋部分のみ大阪府に申請し、残りCRM・予約管理をIT導入補助金へ。</p>
+      <span class="region-amount">約100万円</span>
+      <span class="region-amount-label">（上限）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">兵庫県神戸市</div>
+      <h4>中小企業DX推進支援補助制度</h4>
+      <p>IT導入補助金では対象外となりやすい独自カスタマイズ開発や複数システム連携開発に最適。パッケージでは対応できない美容クリニック特有の施術メニュー・在庫管理の統合開発に強力。</p>
+      <span class="region-amount">最大250万円</span>
+      <span class="region-amount-label">（モデル事業枠）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">京都府京都市</div>
+      <h4>みやこ杣木普及促進事業補助金</h4>
+      <p>京都府産木材を利用した建築物等の改装に上限160万円。待合室やエントランスの木質空間化で患者のリラックス効果向上に活用可能。一般IT・空調には不適。省エネ支援は府・市の補正予算動向を注視。</p>
+      <span class="region-amount">最大160万円</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">福岡県</div>
+      <h4>医療従事者勤務環境改善促進費補助金</h4>
+      <p>無床診療所は1施設あたり上限18万円。少額だが迅速に活用可能。スタッフ休憩室の備品整備や小規模ツールのライセンス購入など、大型助成金の隙間を埋める機動的な財源。</p>
+      <span class="region-amount">最大18万円</span>
+      <span class="region-amount-label">（無床診療所）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">熊本県</div>
+      <h4>医療機関等物価高騰対策支援金</h4>
+      <p>無床診療所に一律11万2千円の定額支援金。使途の事後縛りが緩く、消耗品や少額研修費用など法人のキャッシュフローを底支えする貴重な財源として機能。</p>
+      <span class="region-amount">11万2千円</span>
+      <span class="region-amount-label">（定額支給）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">広島県</div>
+      <h4>医療機関等支援事業（実績あり）</h4>
+      <p>物価高騰の影響を受ける保険医療機関等への光熱費・食材料費支援（申請受付終了済み）。空調更新の抜本対策前に、足元の電気代高騰分をカバーし財務基盤を安定させる定石として過去に活用。</p>
+      <span class="region-amount" style="color:var(--text-muted);">受付終了</span>
+      <span class="region-amount-label">（今後の補正予算を注視）</span>
+    </div>
+
+    <div class="region-card">
+      <div class="region-label">岡山県</div>
+      <h4>医療・福祉施設等物価高騰対策支援金</h4>
+      <p>令和6年度の追加実施として物価高騰対策が継続（期限2025年3月31日等）。広島県同様、省エネ大規模投資の前に足元のコスト高騰緩和に活用。</p>
+      <span class="region-amount" style="color:var(--text-muted);">追加実施中</span>
+      <span class="region-amount-label">（期限付き）</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- SECTION 5: TOP 5 -->
+<section class="section fade-in" id="top5">
+  <div class="section-eyebrow">Chapter 05 — Priority Targets</div>
+  <h2 class="section-title">最優先ターゲット TOP5</h2>
+  <div class="section-desc">
+    本医療法人が適正に活用でき、かつ投資対効果が極めて高い制度を5つ厳選。各制度の戦略的意義を明確にし、獲得のロードマップを提示します。
+  </div>
+
+  <div class="top5-list">
+    <div class="top5-item">
+      <div class="top5-rank">1</div>
+      <div class="top5-content">
+        <span class="top5-scope">全拠点共通</span>
+        <h3>IT導入補助金</h3>
+        <p>予約・問診のDX化、CRM、キャッシュレス対応に直結。導入ITベンダーが事務局登録済みであれば、煩雑な要件定義をスキップしてスピーディに資金化が可能。業務の標準化と効率化の要。</p>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-rank">2</div>
+      <div class="top5-content">
+        <span class="top5-scope">全拠点・特に老朽化拠点</span>
+        <h3>業務改善助成金</h3>
+        <p>空調更新等の高額ハードウェア投資の最適解。最低賃金に近い事務・受付スタッフの時給を戦略的に引き上げ、最大600万円の設備投資枠を獲得。同時に採用力・定着力も強化する一石二鳥のスキーム。</p>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-rank">3</div>
+      <div class="top5-content">
+        <span class="top5-scope">表参道院・麻布院</span>
+        <h3>東京都 省エネ・再エネ設備助成</h3>
+        <p>上限2億円という圧倒的予算規模。都心一等地クリニックの抜本的省エネ化や大規模改装に、他のいかなる補助金よりも強力な支援。</p>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-rank">4</div>
+      <div class="top5-content">
+        <span class="top5-scope">神戸院</span>
+        <h3>神戸市 中小企業DX推進支援補助制度</h3>
+        <p>最大250万円の補助枠。パッケージソフトでは対応不可な、美容クリニック特有の施術メニュー・在庫管理を統合する独自カスタマイズ開発への強力な資金源。</p>
+      </div>
+    </div>
+
+    <div class="top5-item">
+      <div class="top5-rank">5</div>
+      <div class="top5-content">
+        <span class="top5-scope">全拠点共通</span>
+        <h3>キャリアアップ助成金</h3>
+        <p>スタッフの離職率低下の特効薬。有期雇用→正規雇用の転換助成金を原資に、さらに人材開発支援助成金での教育投資へ再投資するサイクルを構築。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- SECTION 6: 14日間行動計画 -->
+<section class="section fade-in" id="roadmap">
+  <div class="section-eyebrow">Chapter 06 — 14-Day Action Plan</div>
+  <h2 class="section-title">最短2週間の行動計画</h2>
+  <div class="section-desc">
+    経営層、人事労務部門、IT部門、各拠点長が密接に連携して推進する実践的ロードマップ。コンプライアンスを完全に担保しつつ最速でプロジェクトを立ち上げます。
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-phase">Phase 1 — Day 1〜3</div>
+      <div class="timeline-card">
+        <h4>基盤整備と現状の徹底把握（事務局・管理部門主導）</h4>
+        <p>全経産省系補助金に必須の「GビズIDプライムアカウント」を即日申請（印鑑証明書＋郵送手続き、発行まで数週間）。並行して人事労務部門は社労士と連携し、全拠点120名の賃金一覧（最低賃金との差額）を抽出。就業規則の「正社員転換規定」の適正な明記を監査。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--teal);"></div>
+      <div class="timeline-phase">Phase 2 — Day 4〜7</div>
+      <div class="timeline-card">
+        <h4>要件定義とパートナーのスクリーニング（各部門長連携）</h4>
+        <p>予約DXシステム・CRMの機能要件をリスト化し、候補ITベンダーが「IT導入支援事業者」として事務局登録済みか、提案ツールが「登録ITツール」かを照会。未登録の場合は登録打診or別ベンダーへ切替判断。空調・LED化は複数設備業者への現地調査依頼と相見積もり手配を開始。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:#27ae60;"></div>
+      <div class="timeline-phase">Phase 3 — Day 8〜10</div>
+      <div class="timeline-card">
+        <h4>投資の切り分けと申請計画の精緻化（経営企画主導）</h4>
+        <p>国と自治体の二重受給回避のため高度なパズルを組み上げ。神戸院→「神戸市DX補助金」、都内→「東京都省エネ助成」等の主軸を決定し、拠点×経費×制度のマッピング表を作成。業務改善助成金の申請拠点では「どのスタッフの賃金をいくら上げれば補助枠最大化か」のシミュレーション実施。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-deep);"></div>
+      <div class="timeline-phase">Phase 4 — Day 11〜14</div>
+      <div class="timeline-card">
+        <h4>申請書類の作成開始・事前相談・ガバナンスの徹底</h4>
+        <p>管轄の労働局・ハローワークへの事前相談を実施。全拠点長へ社内通達を発出：<strong style="color:var(--red-tag);">「労働局からの交付決定通知が届くまでは、いかなる設備契約・システム発注・賃上げも絶対に実行してはならない」</strong>。IT導入支援事業者との共同事業計画書の作成プロセスに入り、不審な値引き交渉や水増し提案には一切応じず、適正な見積もりのみで申請を進行。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- CONCLUSION -->
+<section class="section fade-in" style="text-align:center;">
+  <div style="max-width:650px;margin:0 auto;">
+    <div class="section-eyebrow" style="text-align:center;">Conclusion</div>
+    <h2 class="section-title" style="text-align:center;">法人格の制約を超え、<br>適正な制度活用で投資を最大化する</h2>
+    <p style="color:var(--text-secondary);font-size:0.92rem;line-height:2;margin-top:1.5rem;">
+      綿密な事前調査、制度の適正な仕分け、およびコンプライアンスを最優先とした行動計画を実行することで、本医療法人は法人格による制約をクリアしつつ、多岐にわたる投資意向を最大限の公的資金の裏付けをもって実現することが可能です。本報告書の内容を経営層の意思決定の基盤とし、速やかに各部門連携のプロジェクトチームを組成・推進されることを強く推奨します。
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>医療法人（美容業態）における補助金・助成金活用に関する総合調査報告および実行計画</p>
+    <div class="footer-refs">
+      <details>
+        <summary>引用文献（18件）</summary>
+        <ol>
+          <li>ものづくり補助金は医療法人でも有効活用できるもの？ <a href="https://hojyokin-concierge.com/media/2025/12/02/monozukurihoujin-iryouhoujin" target="_blank">リンク</a></li>
+          <li>mono-shien.jp <a href="https://mono-shien.jp/base/about.html" target="_blank">リンク</a></li>
+          <li>小規模事業者持続化補助金 公募要領 <a href="https://r1.jizokukahojokin.info/index.php/yoko/" target="_blank">リンク</a></li>
+          <li>中小企業省力化投資補助金 申請 <a href="https://shoryokuka.smrj.go.jp/application/" target="_blank">リンク</a></li>
+          <li>中小企業省力化投資補助金 FAQ <a href="https://shoryokuka.smrj.go.jp/faq/" target="_blank">リンク</a></li>
+          <li>IT導入補助金 医療法人の対象要件 <a href="https://so-labo.co.jp/hojyokin/it-hojyo/basic/566/" target="_blank">リンク</a></li>
+          <li>業務改善助成金の概要 <a href="https://mscompass.ms-ins.com/business-news/wage-increase-subsidy/" target="_blank">リンク</a></li>
+          <li>IT導入補助金は医療法人でも活用できる <a href="https://note.com/carearc/n/ned998ccfea6a" target="_blank">リンク</a></li>
+          <li>IT導入補助金2025 ご案内 <a href="https://www.ricoh.co.jp/sales/branch/osaka/news/it-deployment-subsidy-2025/" target="_blank">リンク</a></li>
+          <li>東京都 省エネ・再エネ助成金 <a href="https://www.3benefits.jp/blog/blog-908/" target="_blank">リンク</a></li>
+          <li>神戸市 中小企業DX推進支援補助 <a href="https://www.city.kobe.lg.jp/a93457/2025dxhojo.html" target="_blank">リンク</a></li>
+          <li>大阪府 電子処方箋普及促進事業 <a href="https://hojyokin-portal.jp/subsidies/50399" target="_blank">リンク</a></li>
+          <li>港区 省エネ設備改修助成 <a href="https://www.city.minato.tokyo.jp/chikyukankyou/kankyo-machi/kankyo/hojo/shindankekka.html" target="_blank">リンク</a></li>
+          <li>クリニック経営の補助金 <a href="https://nexillpartners.jp/law/kigyou/fields/medical/news/2052/" target="_blank">リンク</a></li>
+          <li>熊本県 医療機関等物価高騰対策支援金 <a href="https://www.pref.kumamoto.jp/soshiki/42/159954.html" target="_blank">リンク</a></li>
+          <li>京都府 補助金ポータル <a href="https://hojyokin-portal.jp/subsidies/54497" target="_blank">リンク</a></li>
+          <li>広島県医療機関等支援事業 <a href="https://hiroshima-iryo.jp/" target="_blank">リンク</a></li>
+          <li>岡山県 物価高騰対策支援金 <a href="https://www.cacgr.co.jp/w-notice/2025/03/4886/" target="_blank">リンク</a></li>
+        </ol>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
