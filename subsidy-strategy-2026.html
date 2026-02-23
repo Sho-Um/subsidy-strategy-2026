@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年度 補助金・助成金 戦略的活用プラン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0a0e1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2238;
+  --accent-gold: #d4a853;
+  --accent-gold-light: #f0d48a;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #22d3ee;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-violet: #8b5cf6;
+  --accent-amber: #f59e0b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-accent: rgba(212,168,83,0.3);
+  --glass: rgba(17,24,39,0.7);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-gold) var(--bg-deep);
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* ===== NOISE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px) saturate(1.4);
+  background: rgba(10,14,26,0.85);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.4s ease;
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: 'M PLUS 1', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.25s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold);
+  background: rgba(212,168,83,0.08);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(212,168,83,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(59,130,246,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(34,211,238,0.04) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 900px;
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-accent);
+  background: rgba(212,168,83,0.06);
+  font-size: 0.82rem;
+  color: var(--accent-gold);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212,168,83,0.5); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(212,168,83,0); }
+}
+
+.hero h1 {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 .gold {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), #fff5d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.9;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+/* ===== SECTION COMMON ===== */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 800px;
+  line-height: 1.9;
+  margin-bottom: 3rem;
+}
+
+/* ===== MACRO OVERVIEW ===== */
+.macro-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.macro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.macro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.macro-card:hover {
+  border-color: rgba(212,168,83,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.macro-card:hover::before { opacity: 1; }
+
+.macro-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.macro-card h3 {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.macro-card p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+/* ===== CATEGORY TABS ===== */
+.cat-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.cat-tab {
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.cat-tab:hover, .cat-tab.active {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(212,168,83,0.08);
+}
+
+/* ===== PATTERN CARDS ===== */
+.pattern-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pattern-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.pattern-card:hover {
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.pattern-header {
+  padding: 2rem 2rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.pattern-num {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.pattern-header-text h3 {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+
+.pattern-subsidy-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(59,130,246,0.12);
+  color: var(--accent-blue);
+  letter-spacing: 0.02em;
+}
+
+.pattern-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.pattern-desc {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.pattern-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.pattern-detail {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.pattern-detail-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.pattern-detail-value {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
+.pattern-expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.pattern-card.expanded .pattern-expandable {
+  max-height: 2000px;
+}
+
+.pattern-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-subtle);
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  transition: all 0.25s;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.pattern-toggle:hover {
+  color: var(--accent-gold);
+  background: rgba(212,168,83,0.04);
+}
+
+.pattern-toggle .arrow {
+  transition: transform 0.3s;
+}
+
+.pattern-card.expanded .pattern-toggle .arrow {
+  transform: rotate(180deg);
+}
+
+/* ===== DIFFICULTY TABLE ===== */
+.diff-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  margin-top: 2rem;
+}
+
+.diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.diff-table th {
+  background: rgba(212,168,83,0.06);
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-gold);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.diff-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.diff-table tr:last-child td { border-bottom: none; }
+
+.diff-table tr:hover td {
+  background: rgba(255,255,255,0.015);
+}
+
+.diff-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.diff-low { background: rgba(16,185,129,0.12); color: var(--accent-emerald); }
+.diff-mid { background: rgba(245,158,11,0.12); color: var(--accent-amber); }
+.diff-high { background: rgba(244,63,94,0.12); color: var(--accent-rose); }
+
+/* ===== TOP 5 ===== */
+.top5-list {
+  display: grid;
+  gap: 1.5rem;
+  counter-reset: top5;
+}
+
+.top5-item {
+  counter-increment: top5;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.35s;
+  position: relative;
+}
+
+.top5-item:hover {
+  border-color: rgba(212,168,83,0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+.top5-rank {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent-gold), #c4943f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--bg-deep);
+  flex-shrink: 0;
+}
+
+.top5-content h3 {
+  font-family: 'M PLUS 1', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.top5-content p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-gold), var(--accent-blue), var(--accent-emerald));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 72px;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 18px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-gold);
+  background: var(--bg-deep);
+  z-index: 2;
+}
+
+.timeline-day {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.timeline-card h4 {
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-card p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.footer-refs {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-refs summary {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.footer-refs ol {
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 2;
+  padding-left: 1.5rem;
+}
+
+.footer-refs a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
+}
+
+/* ===== COLOR THEMES FOR CATEGORIES ===== */
+.cat-sales .pattern-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.cat-dx .pattern-num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.cat-equip .pattern-num { background: linear-gradient(135deg, #10b981, #059669); }
+.cat-pivot .pattern-num { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.cat-hr .pattern-num { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+.cat-local .pattern-num { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10,14,26,0.95);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.mobile-menu.show { display: flex; }
+
+.mobile-menu a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.mobile-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat-num { font-size: 1.8rem; }
+  .pattern-header { flex-direction: column; gap: 0.75rem; }
+  .pattern-detail-grid { grid-template-columns: 1fr; }
+  .top5-item { grid-template-columns: 1fr; gap: 1rem; }
+  .timeline::before { left: 14px; }
+  .timeline-item { padding-left: 48px; }
+  .timeline-dot { left: 5px; width: 20px; height: 20px; }
+  .diff-table { font-size: 0.78rem; }
+  .diff-table th, .diff-table td { padding: 0.75rem; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 3rem 1.25rem; }
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .pattern-body, .pattern-header { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">補助金戦略 2026</div>
+    <ul class="nav-links">
+      <li><a href="#overview">概況</a></li>
+      <li><a href="#patterns">ビジネスモデル20選</a></li>
+      <li><a href="#difficulty">難易度分析</a></li>
+      <li><a href="#top5">TOP5</a></li>
+      <li><a href="#roadmap">14日間行動計画</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('show')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('show')">✕</button>
+  <a href="#overview" onclick="this.parentElement.classList.remove('show')">概況</a>
+  <a href="#patterns" onclick="this.parentElement.classList.remove('show')">ビジネスモデル20選</a>
+  <a href="#difficulty" onclick="this.parentElement.classList.remove('show')">難易度分析</a>
+  <a href="#top5" onclick="this.parentElement.classList.remove('show')">TOP5</a>
+  <a href="#roadmap" onclick="this.parentElement.classList.remove('show')">14日間行動計画</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">令和8年度（2026年度）最新版</div>
+    <h1>補助金・助成金の<br><span class="gold">戦略的適正活用</span>と<br>ビジネス展開実行プラン</h1>
+    <p class="hero-sub">日本国内及び広島県・広島市に特化した地域密着型の網羅的分析。<br>20のビジネスモデルと最短14日間の実装行動計画を提示します。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">20</div>
+        <div class="hero-stat-label">ビジネスモデル</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">14日</div>
+        <div class="hero-stat-label">最短行動計画</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">TOP5</div>
+        <div class="hero-stat-label">即効性候補</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label">主要制度カバー</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MACRO OVERVIEW -->
+<section class="section fade-in" id="overview">
+  <div class="section-label">マクロ環境</div>
+  <h2 class="section-title">2026年度の補助金を取り巻く<br>構造変化と大原則</h2>
+  <div class="section-desc">
+    コロナ禍の「ばらまき」型支援から完全に脱却し、「持続的な賃上げ」「DXによる生産性向上」「脱炭素（GX）への移行」を達成するための戦略的投資枠組みへと変貌を遂げています。
+  </div>
+
+  <div class="macro-cards">
+    <div class="macro-card">
+      <div class="macro-icon" style="background:rgba(244,63,94,0.1);">📉</div>
+      <h3>採択率の激変リスク</h3>
+      <p>ものづくり補助金の採択率は平均約49%ながら、応募殺到回では<strong style="color:var(--accent-rose);">約29%</strong>まで急落。小規模事業者持続化補助金も第18回公募では<strong style="color:var(--accent-rose);">37.9%</strong>にとどまっています。</p>
+    </div>
+    <div class="macro-card">
+      <div class="macro-icon" style="background:rgba(245,158,11,0.1);">💰</div>
+      <h3>賃上げの誓約義務</h3>
+      <p>デジタル化・AI導入補助金では、非常勤を含む全従業員の1人当たり給与支給総額の年平均成長率を<strong style="color:var(--accent-amber);">「物価安定の目標＋1.5%以上」</strong>向上させる3年間の事業計画が義務化。</p>
+    </div>
+    <div class="macro-card">
+      <div class="macro-icon" style="background:rgba(59,130,246,0.1);">⚖️</div>
+      <h3>返還ペナルティの厳格化</h3>
+      <p>賃上げ計画の成長率がゼロまたはマイナス、従業員への周知不備が確認された場合、補助金の<strong style="color:var(--accent-blue);">全額または一部返還</strong>という極めて重いペナルティが科されます。</p>
+    </div>
+    <div class="macro-card">
+      <div class="macro-icon" style="background:rgba(16,185,129,0.1);">🎯</div>
+      <h3>適正活用の大原則</h3>
+      <p>補助金の獲得を自己目的化した過剰投資、実体を伴わないシステム導入、名義貸し等の不正受給は、企業のキャッシュフローと<strong style="color:var(--accent-emerald);">社会的信用を致命的に毀損</strong>する行為です。</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- BUSINESS PATTERNS -->
+<section class="section fade-in" id="patterns">
+  <div class="section-label">ビジネスモデル</div>
+  <h2 class="section-title">補助金を活用した<br>現実的ビジネス展開モデル20選</h2>
+  <div class="section-desc">
+    各種補助金・助成金の制度趣旨に合致し、現代の市場環境において高い収益性と持続可能性を見込める20の具体的パターンを6つのカテゴリに分類して提示します。
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="filterCat('all',this)">すべて</button>
+    <button class="cat-tab" onclick="filterCat('sales',this)">販路開拓</button>
+    <button class="cat-tab" onclick="filterCat('dx',this)">DX・AI導入</button>
+    <button class="cat-tab" onclick="filterCat('equip',this)">設備投資・GX</button>
+    <button class="cat-tab" onclick="filterCat('pivot',this)">事業再編</button>
+    <button class="cat-tab" onclick="filterCat('hr',this)">人材確保</button>
+    <button class="cat-tab" onclick="filterCat('local',this)">広島特化</button>
+  </div>
+
+  <div class="pattern-grid" id="patternGrid">
+
+    <!-- === PATTERN 1 === -->
+    <div class="pattern-card cat-sales" data-cat="sales">
+      <div class="pattern-header">
+        <div class="pattern-num">01</div>
+        <div class="pattern-header-text">
+          <h3>小規模飲食店のサブスクリプション型EC展開</h3>
+          <span class="pattern-subsidy-tag">小規模事業者持続化補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">実店舗の座席数や天候に左右される飲食業の脆弱な収益構造を、全国を商圏とするEC・定期便（サブスクリプション）で補完・拡張する戦略。地元密着型カフェが自社ブランド豆の定期便販売プラットフォームを構築。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">該当事業者像</div>
+              <div class="pattern-detail-value">個人事業主または法人 / 飲食業・小売業 / 従業員5名以下</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">使い方</div>
+              <div class="pattern-detail-value">自家焙煎コーヒー豆や独自調味料の全国発送向けECサイト構築費、パッケージデザイン費、初期Web広告出稿費</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">収益化モデル</div>
+              <div class="pattern-detail-value">実店舗の営業時間や客席稼働率に依存しない、ストック型の定期決済売上の獲得によるベース収益の安定化</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約100万円〜150万円（ECプラットフォーム構築、デザイン外注、初期広告宣伝）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">補助金は事業完了後の後払い（精算払い）のため、一時的な立て替え資金の確保が必須。デジタルマーケティング知見不足による広告費の空打ちリスクにも留意。</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">次アクション</div>
+              <div class="pattern-detail-value">管轄の商工会議所へ経営指導の相談予約を入れ、SWOT分析を反映した事業計画書の起案に着手する。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 2 === -->
+    <div class="pattern-card cat-sales" data-cat="sales">
+      <div class="pattern-header">
+        <div class="pattern-num">02</div>
+        <div class="pattern-header-text">
+          <h3>地域工務店のVRモデルルーム導入による遠隔営業強化</h3>
+          <span class="pattern-subsidy-tag">小規模事業者持続化補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">人口減少が進む地方商圏において、都心部からの移住希望者を獲得するため、物理的な距離をデジタル技術で突破。住宅展示場の維持コスト削減も実現するモデル。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">該当事業者像</div>
+              <div class="pattern-detail-value">法人 / 建設業・不動産業・リフォーム業 / 従業員20名以下</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">使い方</div>
+              <div class="pattern-detail-value">施工事例の3D/VR化機材購入費、ウェブサイトへのVR実装改修費用、プロモーション動画制作費</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約80万円〜120万円（3Dスキャンカメラ購入、サイト埋め込み改修費等）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">機材を使いこなすための社内リテラシー教育が不可欠。汎用PC等は対象外の補助金もあるため要件の事前確認必須。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 3 === -->
+    <div class="pattern-card cat-sales" data-cat="sales">
+      <div class="pattern-header">
+        <div class="pattern-num">03</div>
+        <div class="pattern-header-text">
+          <h3>地方製造業の大規模見本市出展による下請け脱却</h3>
+          <span class="pattern-subsidy-tag">自治体独自補助金（例：広島県府中市）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">特定の大手元請け企業に依存する製造業が、自社コア技術を市場に問い、新規の直接取引（BtoB）口座を開拓。自治体独自支援で出展コストを最適化。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">該当事業者像</div>
+              <div class="pattern-detail-value">法人 / 製造業・金属加工業 / 従業員20名〜50名</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約50万円〜150万円（出展料、交通宿泊費、ブース造作費等）。上限金額は低い傾向（府中市：上限20万円）。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 4 === -->
+    <div class="pattern-card cat-dx" data-cat="dx">
+      <div class="pattern-header">
+        <div class="pattern-num">04</div>
+        <div class="pattern-header-text">
+          <h3>専門士業のAI-OCR導入によるコンサルティングシフト</h3>
+          <span class="pattern-subsidy-tag">デジタル化・AI導入補助金2026（通常枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">税理士や社労士等の労働集約型ビジネスにおいて、低単価な入力代行業務をAIに代替。高付加価値な顧問サービスへ人的資源を集中させるモデル。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">該当事業者像</div>
+              <div class="pattern-detail-value">個人事業主または法人 / 士業（税理士・社労士等） / 従業員10名以下</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約30万円〜100万円（ソフトウェア利用料・初期セットアップ費）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">事務局に事前登録された「IT導入支援事業者」を通じて対象ツールを導入することが絶対条件。通常枠ではPC等ハードウェアは対象外。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 5 === -->
+    <div class="pattern-card cat-dx" data-cat="dx">
+      <div class="pattern-header">
+        <div class="pattern-num">05</div>
+        <div class="pattern-header-text">
+          <h3>小規模小売店のインボイス対応ハード・ソフト一括刷新</h3>
+          <span class="pattern-subsidy-tag">デジタル化・AI導入補助金2026（インボイス枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">インボイス制度対応を契機に旧式レジをクラウドPOSへ一新。在庫管理のリアルタイム化と精算業務の効率化を同時に実現。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約40万円〜80万円（ハードウェアおよびソフトウェア一式）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">ハードウェア単体での申請は不可。必ずインボイス対応ソフトウェアとのセット導入が必須。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 6 === -->
+    <div class="pattern-card cat-dx" data-cat="dx">
+      <div class="pattern-header">
+        <div class="pattern-num">06</div>
+        <div class="pattern-header-text">
+          <h3>地域商店街の購買データ統合「複数社連携DX」</h3>
+          <span class="pattern-subsidy-tag">デジタル化・AI導入補助金2026（複数社連携枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">商店街や協同組合という「面」でデータ分析基盤を導入。地域経済圏全体の回遊性と競争力を底上げ。最大3,000万円・補助率最大4/5。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">500万円〜数千万円規模（補助額最大3,000万円、小規模事業者は最大4/5の補助率）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">参加企業間での個人情報取り扱いルール策定や費用負担の合意形成が最大の障壁。強力なリーダーシップが必須。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 7 === -->
+    <div class="pattern-card cat-dx" data-cat="dx">
+      <div class="pattern-header">
+        <div class="pattern-num">07</div>
+        <div class="pattern-header-text">
+          <h3>医療・福祉法人の「サイバーセキュリティお助け隊」BCP強化</h3>
+          <span class="pattern-subsidy-tag">デジタル化・AI導入補助金2026（セキュリティ枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">ランサムウェア被害が急増するなか、専門IT人材を抱えられない中堅・中小法人が、事業継続計画の要となるセキュリティ対策を低コストで担保。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">約20万円〜100万円（補助上限150万円）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">対象サービスは指定リスト内に厳格限定。「SECURITY ACTION」宣言手続きが必須。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 8 === -->
+    <div class="pattern-card cat-equip" data-cat="equip">
+      <div class="pattern-header">
+        <div class="pattern-num">08</div>
+        <div class="pattern-header-text">
+          <h3>金属加工業の5軸マシニングセンタ導入</h3>
+          <span class="pattern-subsidy-tag">ものづくり補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">汎用工作機械の価格競争市場から脱却し、航空宇宙・医療機器部品の高利益率市場へピボット。3,000万円〜5,000万円規模の大規模投資モデル。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">採択率が約29%まで急落するリスクあり。全従業員への「賃上げ表明書」提出と周知が絶対条件。未達は返還義務。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 9 === -->
+    <div class="pattern-card cat-equip" data-cat="equip">
+      <div class="pattern-header">
+        <div class="pattern-num">09</div>
+        <div class="pattern-header-text">
+          <h3>食品製造工場の高効率設備導入による脱炭素・固定費削減</h3>
+          <span class="pattern-subsidy-tag">省エネルギー投資促進補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">旧式の重油ボイラー等を最新の高効率ヒートポンプへリプレース。光熱費という恒常的な固定費の流出を止める財務改善モデル。投資規模1,000万円〜数億円。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">エネルギー削減量の厳密なシミュレーション計算が必要。専門のエネルギー管理士等による緻密な事前調査が不可欠。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 10 === -->
+    <div class="pattern-card cat-equip" data-cat="equip">
+      <div class="pattern-header">
+        <div class="pattern-num">10</div>
+        <div class="pattern-header-text">
+          <h3>創エネ設備導入と賃上げ原資の創出（広島県特化）</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島県：賃上げ環境整備設備投資支援</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">太陽光発電等で買電コストを圧縮し、浮いた固定費を従業員の賃上げ原資に。助成限度額は最大2億円と地方自治体単独では破格のスケール。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">2,000万円〜数億円（投資下限額1,000万円）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">投資下限額が1,000万円（税抜）と高設定。ブリッジ融資枠の確実な確保が前提。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 11 === -->
+    <div class="pattern-card cat-pivot" data-cat="pivot">
+      <div class="pattern-header">
+        <div class="pattern-num">11</div>
+        <div class="pattern-header-text">
+          <h3>商業印刷業からアニメ・同人グッズECへの業態転換</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(139,92,246,0.12);color:var(--accent-violet);">新事業進出補助金（旧：事業再構築補助金）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">ペーパーレス化で売上減の印刷業が、保有する高度な印刷技術を「推し活」市場へ転用。アクリルスタンド等のオンデマンド製造・直販ECへピボット。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">1,500万円〜3,000万円（補助上限2,500万円〜9,000万円）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">既存BtoB事業とは異なる市場メカニズムへの適応が必要。採択率は約37.2%と厳格。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 12 === -->
+    <div class="pattern-card cat-pivot" data-cat="pivot">
+      <div class="pattern-header">
+        <div class="pattern-num">12</div>
+        <div class="pattern-header-text">
+          <h3>事業承継（M&A）後のクラウドシステム統合PMI推進</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(139,92,246,0.12);color:var(--accent-violet);">事業承継・引継ぎ補助金（PMI推進枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">M&A後の「アナログシステム不一致」「組織文化分断」を最新ITインフラ統合で解消。バックオフィス標準化と仕入れ原価最適化を実現。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">300万円〜1,500万円（補助上限800〜1,000万円、賃上げ実施で上限引上げ）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 13 === -->
+    <div class="pattern-card cat-pivot" data-cat="pivot">
+      <div class="pattern-header">
+        <div class="pattern-num">13</div>
+        <div class="pattern-header-text">
+          <h3>老舗旅館の計画的廃業と新規事業への再チャレンジ</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(139,92,246,0.12);color:var(--accent-violet);">事業承継・引継ぎ補助金（廃業・再チャレンジ枠）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">回復見込みのない事業を安全に「損切り」し、跡地をグランピング施設等で再起。莫大な修繕費や固定資産税という「負の遺産」からの解放。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">500万円〜数千万円（廃業費用の単独補助上限300万円、他枠との併用で加算可能）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 14 === -->
+    <div class="pattern-card cat-hr" data-cat="hr">
+      <div class="pattern-header">
+        <div class="pattern-num">14</div>
+        <div class="pattern-header-text">
+          <h3>有期雇用エンジニアの正社員登用と賃金改定</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(244,63,94,0.12);color:var(--accent-rose);">キャリアアップ助成金（正社員化コース）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">IT人材等の雇用不安定さを取り除き、競合他社への流出を物理的・心理的に防止。中小企業は1人当たり最大60万円。要件充足で原則全件支給。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">事前の「キャリアアップ計画」認定申請と就業規則届出の順序を1日でも誤ると助成金は一切不支給。賃金台帳の計算不備にも厳重注意。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 15 === -->
+    <div class="pattern-card cat-hr" data-cat="hr">
+      <div class="pattern-header">
+        <div class="pattern-num">15</div>
+        <div class="pattern-header-text">
+          <h3>介護施設の育休代替要員確保と採用ブランディング</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(244,63,94,0.12);color:var(--accent-rose);">両立支援等助成金（育児休業等支援コース）</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">育休スタッフの業務をカバーする同僚に特別手当を支給し、「休む側」の罪悪感と「カバー側」の不公平感を同時払拭。業務体制整備費・代替手当で最大140万円。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">金銭的手当だけでは不十分。業務マニュアル化、DX化・外部委託など実質的な業務体制の再構築が並行して必要。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 16 === -->
+    <div class="pattern-card cat-local" data-cat="local">
+      <div class="pattern-header">
+        <div class="pattern-num">16</div>
+        <div class="pattern-header-text">
+          <h3>似島の空き家群を活用したインバウンド向け体験型ゲストハウス</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島市：空き家バリュー再生・活性化事業</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">広島市が重点を置く「似島の活性化」と「空き家問題解消」を同時達成。欧米インバウンド富裕層向けの一棟貸しプライベート宿泊施設を開業。補助率1/2・限度額1,000万円。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">1,000万円〜2,500万円（市町村レベルとして極めて手厚い支援規模）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">島嶼部のため建築資材の運搬コスト高騰・工期長期化リスク。地元自治会との綿密なコミュニケーション構築が不可欠。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 17 === -->
+    <div class="pattern-card cat-local" data-cat="local">
+      <div class="pattern-header">
+        <div class="pattern-num">17</div>
+        <div class="pattern-header-text">
+          <h3>中山間地域の移動スーパー×IoT高齢者見守り融合事業</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島県起業支援金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">安佐北区等の「買い物難民問題」と「孤独死問題」をデジタル技術活用の移動販売事業で包括解決するソーシャルビジネスモデル。最大200万円補助。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">300万円〜600万円（対象経費の1/2以内、最大200万円）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">過疎地の需要絶対数の少なさ。公募期間が短く、交付決定日以降の費用のみ対象の厳格なスケジュール管理が必要。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 18 === -->
+    <div class="pattern-card cat-local" data-cat="local">
+      <div class="pattern-header">
+        <div class="pattern-num">18</div>
+        <div class="pattern-header-text">
+          <h3>広島市中心部商店街のインキュベーション・チャレンジショップ</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島市：地域連携商店街事業費補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">空き店舗をポップアップストアや共有キッチン付きイベントスペースとして再生。若手起業家のテストマーケティング舞台に。補助限度額700万円。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">単独営利企業は申請不可。商店街等の「団体・協議会」として申請し、地域全体の公益性の合意形成が前提。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 19 === -->
+    <div class="pattern-card cat-local" data-cat="local">
+      <div class="pattern-header">
+        <div class="pattern-num">19</div>
+        <div class="pattern-header-text">
+          <h3>瀬戸内カキ殻等の未利用資源を活用した産学連携R&D</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島県新商品・新技術開発支援補助金</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">水産加工廃棄物を「高付加価値な独自素材」へ転換。カキ殻から特殊肥料や高純度カルシウム原料を地元大学と共同開発し、特許取得を目指す。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">技術的ブレイクスルーが起きない根本リスク。大学等研究機関を含む1者以上のコンソーシアム構成が義務。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- === PATTERN 20 === -->
+    <div class="pattern-card cat-local" data-cat="local">
+      <div class="pattern-header">
+        <div class="pattern-num">20</div>
+        <div class="pattern-header-text">
+          <h3>「2024年問題」対応トラック物流のDX推進</h3>
+          <span class="pattern-subsidy-tag" style="background:rgba(34,211,238,0.12);color:var(--accent-cyan);">広島市DX推進事業</span>
+        </div>
+      </div>
+      <div class="pattern-body">
+        <p class="pattern-desc">GPS動態管理システムで荷待ち時間を分単位で計測・データ化し、荷主への適正附帯料金請求と運賃交渉をシステマチックに展開。配車効率と燃料費も大幅改善。</p>
+      </div>
+      <div class="pattern-expandable">
+        <div class="pattern-body" style="padding-top:0;">
+          <div class="pattern-detail-grid">
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">初期投資</div>
+              <div class="pattern-detail-value">100万円〜300万円（車載端末・クラウドシステム一式）</div>
+            </div>
+            <div class="pattern-detail">
+              <div class="pattern-detail-label">リスク・注意点</div>
+              <div class="pattern-detail-value">荷主とのパワーバランスにより即座の運賃交渉妥結は困難。高齢ドライバーへの新オペレーション定着に時間を要する。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pattern-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span>詳細を見る</span><span class="arrow">▼</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- DIFFICULTY TABLE -->
+<section class="section fade-in" id="difficulty">
+  <div class="section-label">審査分析</div>
+  <h2 class="section-title">申請難易度・採択率の力学</h2>
+  <div class="section-desc">
+    各制度の審査傾向、求められる書類の緻密さ、そして採択率の変動力学を総括します。
+  </div>
+
+  <div class="diff-table-wrap">
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>制度名</th>
+          <th>難易度</th>
+          <th>採択率目安</th>
+          <th>突破のポイント</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;color:var(--text-primary);">小規模事業者持続化補助金</td>
+          <td><span class="diff-badge diff-mid">中</span></td>
+          <td>約37.9%（厳格化傾向）</td>
+          <td>SWOT分析と販路開拓策の論理整合性。賃上げ・事業承継等の政策加点を貪欲に取得。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:var(--text-primary);">デジタル化・AI導入補助金</td>
+          <td><span class="diff-badge diff-low">低〜中</span></td>
+          <td>非公表（相対的に高めと推測）</td>
+          <td>GビズIDプライム＋SECURITY ACTION宣言が必須。最低賃金要件で補助率2/3へ引上げ。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:var(--text-primary);">ものづくり補助金</td>
+          <td><span class="diff-badge diff-high">高</span></td>
+          <td>平均約49%（最低約29%）</td>
+          <td>圧倒的な「革新性」の論証。賃上げ表明書提出と全従業員周知が絶対条件。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:var(--text-primary);">事業承継・引継ぎ補助金</td>
+          <td><span class="diff-badge diff-mid">中</span></td>
+          <td>約60.1%〜62.5%</td>
+          <td>PMI後の事業シナジーと地域雇用への寄与を明確に。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;color:var(--text-primary);">キャリアアップ助成金等（厚労省系）</td>
+          <td><span class="diff-badge diff-low">低</span></td>
+          <td>要件充足で原則全件支給</td>
+          <td>就業規則の作成→届出→施行の順序を1日も誤らない厳密な労務管理能力。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- TOP 5 -->
+<section class="section fade-in" id="top5">
+  <div class="section-label">戦略的優先度</div>
+  <h2 class="section-title">今すぐ取りに行くべき<br>「即効性」候補 TOP5</h2>
+  <div class="section-desc">
+    政策動向、審査の厳格化トレンド、広島地域の経済特性を総合評価し、投資対効果が極めて高い支援制度を選定。
+  </div>
+
+  <div class="top5-list">
+    <div class="top5-item">
+      <div class="top5-rank">1</div>
+      <div class="top5-content">
+        <h3>デジタル化・AI導入補助金2026（インボイス枠）</h3>
+        <p>通常は補助対象外となるハードウェアが特例で認められ、小規模事業者には最大4/5の補助率。日常の精算・在庫管理業務の効率化に対して極めて即効性が高く、最優先で確保すべきリソースです。</p>
+      </div>
+    </div>
+    <div class="top5-item">
+      <div class="top5-rank">2</div>
+      <div class="top5-content">
+        <h3>小規模事業者持続化補助金</h3>
+        <p>ECサイト構築、展示会出展、チラシ制作等「直接的な販路開拓」に幅広く使え、経営の自由度が非常に高い。すべての小規模事業者がマーケティング予算拡張のベースキャンプとして毎年検討すべき汎用制度です。</p>
+      </div>
+    </div>
+    <div class="top5-item">
+      <div class="top5-rank">3</div>
+      <div class="top5-content">
+        <h3>キャリアアップ助成金（正社員化コース）</h3>
+        <p>非正規雇用の処遇改善は莫大な採用コスト低減と熟練スタッフ流出防止で経営基盤を安定させる投資。要件充足で極めて高い確率で受給可能、財務リスクが低い制度です。</p>
+      </div>
+    </div>
+    <div class="top5-item">
+      <div class="top5-rank">4</div>
+      <div class="top5-content">
+        <h3>【広島市】空き家バリュー再生・活性化事業</h3>
+        <p>最大1,000万円（補助率1/2）は市町村レベルとして圧倒的規模。似島等の指定地域でインバウンド観光・移住定住ビジネスを立ち上げる際、初期の巨大な財務リスクを取り払う最強のカードです。</p>
+      </div>
+    </div>
+    <div class="top5-item">
+      <div class="top5-rank">5</div>
+      <div class="top5-content">
+        <h3>【広島県】賃上げ環境整備に向けた設備投資支援事業</h3>
+        <p>助成限度額最大2億円。太陽光パネル等の「創エネ設備」も対象で、エネルギーコスト高騰への防御と賃上げ原資確保の二重課題を同時解決できる極めて戦略的な制度設計です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ROADMAP / TIMELINE -->
+<section class="section fade-in" id="roadmap">
+  <div class="section-label">実行計画</div>
+  <h2 class="section-title">最短14日間の<br>実装行動ロードマップ</h2>
+  <div class="section-desc">
+    補助金申請は全社的プロジェクトとして、迅速かつ計画的な初動が成否を完全に分けます。明日から直ちに着手すべきストイックな実行プランを示します。
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-day">Day 1</div>
+      <div class="timeline-card">
+        <h4>課題の冷徹な洗い出しと制度の絞り込み</h4>
+        <p>自社事業構造の最大ボトルネック（新規集客枯渇、人手不足、設備老朽化、システム未整備等）を定量的にリストアップ。TOP5を含む制度から自社の課題解決に直結し、身の丈に合ったものを1〜2つに絞り込む。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-blue);"></div>
+      <div class="timeline-day">Day 2〜3</div>
+      <div class="timeline-card">
+        <h4>必須アカウント取得とIT基礎要件のクリア</h4>
+        <p>「GビズIDプライム」のアカウント作成申請を直ちに実行（印鑑証明書の郵送等で発行まで数日〜数週間）。IT導入補助金検討の場合はIPAサイトで「SECURITY ACTION」の宣言を完了。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-cyan);"></div>
+      <div class="timeline-day">Day 4〜5</div>
+      <div class="timeline-card">
+        <h4>外部専門機関・公的窓口へのアポイント取得</h4>
+        <p>商工会議所・認定経営革新等支援機関（顧問税理士・メインバンク）へ事業計画の初期構想についての初回相談予約。助成金狙いの場合は社会保険労務士へ就業規則の初期診断を依頼。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-emerald);"></div>
+      <div class="timeline-day">Day 6〜7</div>
+      <div class="timeline-card">
+        <h4>公的証明書・必要書類の網羅的な事前収集</h4>
+        <p>法務局にて「履歴事項全部証明書」、税務署にて「納税証明書」（交付申請日から3カ月以内の有効期限に留意）を取得。直近2期分の決算書PDF電子データをフォルダに整理。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-violet);"></div>
+      <div class="timeline-day">Day 8〜10</div>
+      <div class="timeline-card">
+        <h4>事業計画の骨子作成（SWOT分析と投資対効果の言語化）</h4>
+        <p>ビジネスモデルの革新性を言語化。SWOT分析をテキスト化し、導入設備やITツールが売上向上・コスト削減・賃上げ要件達成にいかに寄与するか、根拠ある数値シミュレーションを作成。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-amber);"></div>
+      <div class="timeline-day">Day 11〜12</div>
+      <div class="timeline-card">
+        <h4>相見積もりの取得とベンダーとの仕様確定</h4>
+        <p>システムベンダー・設備メーカー・施工業者に仕様要件を伝達し正式見積書を依頼。経費妥当性証明のため、必ず最低2社以上の競合ベンダーへ打診し比較検討プロセスを記録。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot" style="border-color:var(--accent-rose);"></div>
+      <div class="timeline-day">Day 13〜14</div>
+      <div class="timeline-card">
+        <h4>専門家との壁打ちによる事業計画の高度なブラッシュアップ</h4>
+        <p>商工会議所指導員や認定支援機関と面談。「審査員の視点（革新性・市場優位性・実現可能性・政策的意義）」からのフィードバックを受け、不足データを補強し採択レベルへ精緻化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- CONCLUSION -->
+<section class="section fade-in" style="text-align:center;">
+  <div style="max-width:700px;margin:0 auto;">
+    <div class="section-label" style="justify-content:center;">結論</div>
+    <h2 class="section-title" style="margin-bottom:2rem;">補助金は「打ち出の小槌」ではない。<br>それは変革の<span style="color:var(--accent-gold);">ブースター</span>である。</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;line-height:2;">
+      補助金や助成金は、自社の事業構造を根本から見つめ直し、時代の変化に対応できる筋肉質で圧倒的な競争力を持つ組織へと変革するための「強力な起爆剤」です。本レポートの20のビジネスモデルと14日間の行動計画を経営の羅針盤とし、コンプライアンスを遵守した適正な制度活用を通じて、永続的な事業成長と地域社会への貢献を実現しましょう。
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>2026年度版 日本国内及び地域特化（広島県・広島市）における<br>補助金・助成金の戦略的適正活用とビジネス展開実行プラン</p>
+    <div class="footer-refs">
+      <details>
+        <summary>引用文献（7件）</summary>
+        <ol>
+          <li>ものづくり補助金の採択率の推移は？採択のコツも解説！ <a href="https://hojyokin-concierge.com/media/2026/01/22/monodukurihojyokin2026saitakuritu" target="_blank">リンク</a></li>
+          <li>小規模事業者持続化補助金の採択率まとめ！ <a href="https://hojyokin-portal.jp/columns/jizokuka2025_saitaku" target="_blank">リンク</a></li>
+          <li>デジタル化・AI導入補助金とは？ <a href="https://hojyokin-portal.jp/columns/degital_ai_summary" target="_blank">リンク</a></li>
+          <li>新事業進出補助金における賃上げ計画表明書の書き方 <a href="https://mono-support.com/shinshijo/shinzigyo-chinagehyoumeisyo/" target="_blank">リンク</a></li>
+          <li>キャリアアップ助成金に対応した就業規則の作成・変更方法 <a href="https://biz.moneyforward.com/payroll/basic/92972/" target="_blank">リンク</a></li>
+          <li>当初予算主要事業 - 広島市 <a href="https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/047/928/2630.pdf" target="_blank">リンク</a></li>
+          <li>賃上げ環境整備に向けた設備投資支援事業 - 広島県 <a href="https://www.pref.hiroshima.lg.jp/soshiki/76/chinage-josei.html" target="_blank">リンク</a></li>
+        </ol>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Category filter
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pattern-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
