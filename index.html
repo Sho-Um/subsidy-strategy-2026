@@ -757,8 +757,9 @@ body::before {
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .fade-in.visible {
@@ -1775,8 +1776,16 @@ body::before {
 <script>
 // Scroll animation
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target); // Stop observing once visible
+    }
+  });
+}, { 
+  threshold: 0.05,
+  rootMargin: '0px 0px -50px 0px' 
+});
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Category filter
